@@ -30,11 +30,8 @@ pipeline {
             }
         }
 
-        stage('Build des images') {
-            steps {
-                sh 'docker compose build --pull'
-            }
-        }
+        stage('Build des images') { steps { sh ''' echo "=== Début du build Docker ===" 
+                                           docker compose build --pull echo "=== Build Docker terminé ===" ''' } }
 
         stage('Deploiement') {
             steps {
